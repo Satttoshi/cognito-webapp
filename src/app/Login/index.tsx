@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import AWS from '../../../aws-config';
 import { CognitoIdentityServiceProvider } from 'aws-sdk';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -34,22 +36,32 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <>
       <h1>Login</h1>
       {error && <p>{error}</p>}
-      <input
+      <TextField
+        label="Email"
+        variant="outlined"
+        fullWidth
+        margin="normal"
         type="text"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <TextField
+        label="Password"
+        variant="outlined"
+        fullWidth
+        margin="normal"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+      <Button variant="contained" color="primary" onClick={handleLogin}>
+        Login
+      </Button>
+    </>
   );
 }
