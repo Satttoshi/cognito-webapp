@@ -13,9 +13,6 @@ export default function Home() {
     <main className={styles.main}>
       <StyledHeader>Hello World</StyledHeader>
       <Login />
-      <button onClick={() => console.log(process.env.NEXT_PUBLIC_TEST)}>
-        Hey
-      </button>
     </main>
   );
 }
